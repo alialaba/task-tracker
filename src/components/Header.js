@@ -1,6 +1,11 @@
+import Button from "./Button";
 const Header =()=>{
     return(
-        <div></div>
+        <header className="header">
+            <h2>Task Tracker</h2>
+            <Button text="Add"/>
+
+        </header>
 
     );
 }
