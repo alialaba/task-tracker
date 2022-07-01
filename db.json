@@ -5,6 +5,19 @@
       "day": "20/9/1997",
       "reminder": false,
       "id": 1
+    },
+    {
+      "text": "Hello world",
+      "day": "20/9/1997",
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "text": "React world",
+      "day": "20/9/1997",
+      "reminder": false,
+      "id": 3
     }
+
   ]
 }

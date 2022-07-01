@@ -1,6 +1,6 @@
 const Button =({color,text,onClick})=>{
     return(
-       <div></div>
+       <button className="btn" onClick={onClick}>{text}</button>
     )
 }
 export default Button;
