@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
-import Tasks from "./components/Tasks"
+import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
+
 const  App =() =>{
 const [tasks,setTasks] = useState([]) ; 
 
@@ -21,10 +23,26 @@ const fetchTasks= async()=>{
 
 }
 
+const addNewTask= async (task)=>{
+const res  = await fetch("http://localhost:5000/tasks",{
+method:'POST',
+headers:{
+  "Content-Type": "application/json"
+},
+body: JSON.stringify(task)
+})
+
+const data = await res.json();
+
+setTasks([...tasks, data])
+
+}
+
 
   return (
     <div className="container">
     <Header/>
+    <AddTask addTask={addNewTask}/>
     <Tasks tasks={tasks}/>
     </div>
   );
