@@ -7,6 +7,7 @@ const AddTask =({addTask})=>{
 
     })
 
+    //function that handle change
     const handleChange=(event)=>{
         const {name, value, type, checked, } = event.target
         setFormData(initialFormData=> {
@@ -18,13 +19,16 @@ const AddTask =({addTask})=>{
 
     }
 
+    //function that handle submit
     const handleSubmit=(event)=>{
         event.preventDefault();
    if(!formData.text){
     alert("Please enter the input field")
     return;
 }
+//add new input datas on submiting form
 addTask(formData)
+//empty the input field after submitting form
 setFormData({ text:"",
 day:"",
 reminder:true

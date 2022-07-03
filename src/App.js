@@ -29,11 +29,12 @@ method:'POST',
 headers:{
   "Content-Type": "application/json"
 },
+//stringify the value
 body: JSON.stringify(task)
 })
 
 const data = await res.json();
-
+//update the task state with initial values  and  new values data
 setTasks([...tasks, data])
 
 }
