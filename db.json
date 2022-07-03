@@ -13,22 +13,10 @@
       "id": 2
     },
     {
-      "text": "React world",
-      "day": "20/9/1997",
-      "reminder": false,
-      "id": 3
-    },
-    {
       "text": "eat well",
       "day": "01/11/22",
       "reminder": false,
       "id": 4
-    },
-    {
-      "text": "Animal science",
-      "day": "01/11/22",
-      "reminder": false,
-      "id": 5
     }
   ]
 }

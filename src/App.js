@@ -39,12 +39,21 @@ setTasks([...tasks, data])
 
 }
 
+// delete task 
+const deleteTask= async (id)=>{
+ 
+  await fetch(`http://localhost:5000/tasks/${id}`, {
+    method:"DELETE"
+  })
+  //return tasks that are not equal to id clicked
+  setTasks(tasks.filter((task)=> task.id !== id))
 
+}
   return (
     <div className="container">
     <Header/>
     <AddTask addTask={addNewTask}/>
-    <Tasks tasks={tasks}/>
+    <Tasks tasks={tasks} onDelete={deleteTask}/>
     </div>
   );
 }
