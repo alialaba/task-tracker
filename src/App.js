@@ -24,6 +24,13 @@ const fetchTasks= async()=>{
 
 }
 
+//fetch task
+const fetchTask= async(id)=>{
+  const res = await fetch(`http://localhost:5000/tasks/${id}`);
+  const data = await res.json();
+  return data;
+}
+
 const addNewTask= async (task)=>{
 const res  = await fetch("http://localhost:5000/tasks",{
 method:'POST',
@@ -39,7 +46,26 @@ const data = await res.json();
 setTasks([...tasks, data])
 
 }
+//Toggle reminder1
+const toggleReminder = async(id)=>{
 
+ const taskToToggle = await fetchTask(id);
+ //toggle task to reminder and set it to opposite of the initial boolean value
+ const updateTask = {...taskToToggle, reminder: !taskToToggle.reminder}
+
+ const res = await fetch(`http://localhost:5000/tasks/${id}`,{
+  method:"PUT",
+  headers: {
+    "Content-Type" : "application/json"
+  },
+  body: JSON.stringify(updateTask)
+ })
+const data = await res.json();
+
+//task.id equal id return obj task and update the json reminder value
+setTasks(tasks.map((task)=> task.id === id ? {...task, reminder:data.reminder}: task))
+
+}
 // delete task 
 const deleteTask= async (id)=>{
  
@@ -54,7 +80,7 @@ const deleteTask= async (id)=>{
     <div className="container">
     <Header onShow={showOnAdd}  showAdd={()=>setShowOnAdd(!showOnAdd)}/>
    {showOnAdd &&  <AddTask addTask={addNewTask} />}
-    <Tasks tasks={tasks} onDelete={deleteTask}/>
+    <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
     </div>
   );
 }
