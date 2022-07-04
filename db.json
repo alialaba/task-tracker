@@ -1,12 +1,6 @@
 {
   "tasks": [
     {
-      "text": "eat well",
-      "day": "20/9/1997",
-      "reminder": false,
-      "id": 1
-    },
-    {
       "text": "Hello world",
       "day": "20/9/1997",
       "reminder": true,
@@ -17,6 +11,12 @@
       "day": "01/11/22",
       "reminder": false,
       "id": 4
+    },
+    {
+      "text": "Drink Water",
+      "day": "20/9/1997",
+      "reminder": true,
+      "id": 5
     }
   ]
 }

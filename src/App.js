@@ -5,6 +5,7 @@ import AddTask from "./components/AddTask";
 
 const  App =() =>{
 const [tasks,setTasks] = useState([]) ; 
+const [showOnAdd, setShowOnAdd] = useState(false);
 
 useEffect(()=>{
   const getTasks = async ()=>{
@@ -51,8 +52,8 @@ const deleteTask= async (id)=>{
 }
   return (
     <div className="container">
-    <Header/>
-    <AddTask addTask={addNewTask}/>
+    <Header onShow={showOnAdd}  showAdd={()=>setShowOnAdd(!showOnAdd)}/>
+   {showOnAdd &&  <AddTask addTask={addNewTask} />}
     <Tasks tasks={tasks} onDelete={deleteTask}/>
     </div>
   );
